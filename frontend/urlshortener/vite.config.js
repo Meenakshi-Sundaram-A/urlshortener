@@ -5,11 +5,11 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'frontend/urlshortener/dist', // Ensure this is correct
+    outDir: 'frontend/urlshortener/dist',
   },
   server: {
     watch: {
-      usePolling: true, // Enable polling-based file watching
+      usePolling: true, 
       interval: 1000
     }
   }
