@@ -42,8 +42,14 @@ func handleData(w http.ResponseWriter, r *http.Request) {
 
 	urlStore[shortUrl] = data.URL
 
+	baseURL := os.Getenv("BASE_URL")
+
+	if baseURL == "" {
+		baseURL = "http://localhost:8080"
+	}
+
 	response := map[string]string{
-		"shortUrl": fmt.Sprintf("http://localhost:8080/%s", shortUrl),
+		"shortUrl": fmt.Sprintf("%s/%s", baseURL, shortUrl),
 	}
 
 	w.Header().Set("Content-Type", "application/json")
